@@ -1,3 +1,7 @@
+- name: Install stow
+  become: true
+  pacman: name=stow
+
 - name: Cloning dotfiles
   git:
     repo: git@github.com:r3k4mn14r/dotfiles.git
