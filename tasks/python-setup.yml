@@ -1,0 +1,26 @@
+- name: Remove pyenv versions
+  shell: rm -rf ~/.pyenv
+
+- name: Install pyenv
+  pacman: name=pyenv
+  become: true
+
+- name: Install pyenv-virtualenv
+  command: yay -S pyenv-virtualenv --noconfirm
+
+- name: Install latest python
+  shell: pyenv install $(pyenv install --list | grep --extended-regexp "^\s*[0-9][0-9.]*[0-9]\s*$" | tail -1)
+
+- name: Create base virtualenv
+  shell: "{{ item }}"
+  with_items:
+    - eval "$(pyenv virtualenv-init -)"
+    - pyenv virtualenv $(pyenv install --list | grep --extended-regexp "^\s*[0-9][0-9.]*[0-9]\s*$" | tail -1) base
+
+- name: Install base virtualenv packages
+  shell: "{{ item }}"
+  with_items:
+    - $(pyenv root)/versions/base/bin/pip install ipython neovim line_profiler flake8 black
+
+- name: Set python versions path
+  shell: pyenv global $(pyenv install --list | grep --extended-regexp "^\s*[0-9][0-9.]*[0-9]\s*$" | tail -1) base

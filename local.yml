@@ -1,0 +1,38 @@
+---
+- hosts: localhost
+  connection: local
+  pre_tasks:
+  - name: Full upgrade
+    pacman:
+      update_cache: true
+      upgrade: true
+    become: true
+  vars_files:
+    - vars/ssh.yml
+  tasks:
+    - import_tasks: tasks/yay-setup.yml
+      tags: [ install, yay ]
+    - import_tasks: tasks/ssh-setup.yml
+      tags: [ install, ssh ]
+    - import_tasks: tasks/base-setup.yml
+      tags: [ install, base ]
+    - import_tasks: tasks/git-setup.yml
+      tags: [ install, git ]
+    - import_tasks: tasks/dotfiles-setup.yml
+      tags: [ install, dotfiles ]
+    - import_tasks: tasks/zsh-setup.yml
+      tags: [ install, zsh ]
+    - import_tasks: tasks/nvim-setup.yml
+      tags: [ install, neovim ]
+    - import_tasks: tasks/brave-setup.yml
+      tags: [ install, brave ]
+    - import_tasks: tasks/devtools-setup.yml
+      tags: [ install, tools ]
+    - import_tasks: tasks/rust-setup.yml
+      tags: [ install, rust ]
+    - import_tasks: tasks/python-setup.yml
+      tags: [ install, python ]
+    - import_tasks: tasks/termfonts-setup.yml
+      tags: [ install, fonts ]
+    - import_tasks: tasks/pulseaudio-setup.yml
+      tags: [ install, audio ]

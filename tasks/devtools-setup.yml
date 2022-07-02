@@ -1,0 +1,3 @@
+- name: Setup dev tools
+  become: true
+  pacman: name=tmux,tldr,ripgrep,xclip

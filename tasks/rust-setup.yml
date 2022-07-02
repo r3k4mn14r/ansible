@@ -1,0 +1,12 @@
+- name: Install rustup
+  become: true
+  pacman: name=rustup
+
+- name: Install rust stable version
+  command: rustup toolchain install stable
+
+- name: Install rust nightly version
+  command: rustup toolchain install nightly
+
+- name: Setup default rust version to stable
+  command: rustup default stable
