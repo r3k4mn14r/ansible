@@ -5,22 +5,26 @@
   pacman: name=pyenv
   become: true
 
-- name: Install pyenv-virtualenv
-  command: yay -S pyenv-virtualenv --noconfirm
+- name: Set python version
+  set_fact:
+    latest_python: $(pyenv install --list | grep --extended-regexp "^\s*[0-9][0-9.]*[0-9]\s*$" | tail -1)
 
 - name: Install latest python
-  shell: pyenv install $(pyenv install --list | grep --extended-regexp "^\s*[0-9][0-9.]*[0-9]\s*$" | tail -1)
-
-- name: Create base virtualenv
-  shell: "{{ item }}"
-  with_items:
-    - eval "$(pyenv virtualenv-init -)"
-    - pyenv virtualenv $(pyenv install --list | grep --extended-regexp "^\s*[0-9][0-9.]*[0-9]\s*$" | tail -1) base
-
-- name: Install base virtualenv packages
-  shell: "{{ item }}"
-  with_items:
-    - $(pyenv root)/versions/base/bin/pip install ipython neovim line_profiler flake8 black
+  shell: pyenv install {{ latest_python }}
 
 - name: Set python versions path
-  shell: pyenv global $(pyenv install --list | grep --extended-regexp "^\s*[0-9][0-9.]*[0-9]\s*$" | tail -1) base
+  shell: pyenv global {{ latest_python }}
+
+- name: Install pipx
+  shell: python -m pip install --user pipx
+
+- name: Uninstall all pipx packages
+  shell: pipx uninstall-all
+
+- name: Install python programs
+  shell: pipx install "{{ item }}"
+  with_items:
+    - ipython
+    - flake8
+    - black
+    - poetry
