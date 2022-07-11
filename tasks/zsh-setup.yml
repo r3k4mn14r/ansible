@@ -5,3 +5,6 @@
 - name: Change default shell to zsh
   become: true
   shell: chsh -s "$(which zsh)" "{{ lookup('env', 'USER') }}"
+
+- name: Install powerlevel10k prompt
+  shell: yay -S zsh-theme-powerlevel10k-git --noconfirm
