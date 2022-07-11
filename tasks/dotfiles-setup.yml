@@ -14,3 +14,16 @@
     - install
     - dotfiles
     - stow
+
+- name: Linking dotfiles
+  shell: "stow -t {{ lookup('env', 'HOME') }} -d {{ lookup('env', 'HOME') }}/.dotfiles/stow {{ item }}"
+  with_items:
+    - zsh
+    - tmux
+    - nvim
+    - ipython
+    - i3
+    - urxvt
+  tags:
+    - install
+    - dotfiles
