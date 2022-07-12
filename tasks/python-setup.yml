@@ -28,3 +28,4 @@
     - flake8
     - black
     - poetry
+    - jedi-language-server
