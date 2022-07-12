@@ -10,3 +10,7 @@
 
 - name: Setup default rust version to stable
   command: rustup default stable
+
+- name: Install rust-analyzer
+  become: true
+  pacman: name=rust-analyzer
