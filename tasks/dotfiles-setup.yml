@@ -10,10 +10,6 @@
     update: yes
     accept_hostkey: yes
     version: main
-  tags:
-    - install
-    - dotfiles
-    - stow
 
 - name: Linking dotfiles
   shell: "stow -t {{ lookup('env', 'HOME') }} -d {{ lookup('env', 'HOME') }}/.dotfiles/stow {{ item }}"
@@ -24,6 +20,3 @@
     - ipython
     - i3
     - urxvt
-  tags:
-    - install
-    - dotfiles

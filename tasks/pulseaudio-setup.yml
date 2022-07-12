@@ -1,3 +1,0 @@
-- name: Install pulseaudio
-  become: true
-  pacman: name=pulseaudio

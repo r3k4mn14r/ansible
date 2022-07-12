@@ -34,5 +34,3 @@
       tags: [ install, python ]
     - import_tasks: tasks/termfonts-setup.yml
       tags: [ install, fonts ]
-    - import_tasks: tasks/pulseaudio-setup.yml
-      tags: [ install, audio ]
