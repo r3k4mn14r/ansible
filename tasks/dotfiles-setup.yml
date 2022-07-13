@@ -11,8 +11,18 @@
     accept_hostkey: yes
     version: main
 
+- name: Unlinking previous dotfiles
+  shell: "stow -D -t {{ lookup('env', 'HOME') }} -d {{ lookup('env', 'HOME') }}/.dotfiles {{ item }}"
+  with_items:
+    - zsh
+    - tmux
+    - nvim
+    - ipython
+    - i3
+    - urxvt
+
 - name: Linking dotfiles
-  shell: "stow -t {{ lookup('env', 'HOME') }} -d {{ lookup('env', 'HOME') }}/.dotfiles/stow {{ item }}"
+  shell: "stow -t {{ lookup('env', 'HOME') }} -d {{ lookup('env', 'HOME') }}/.dotfiles {{ item }}"
   with_items:
     - zsh
     - tmux
