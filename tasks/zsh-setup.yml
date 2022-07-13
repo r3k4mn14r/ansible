@@ -8,3 +8,12 @@
 
 - name: Install powerlevel10k prompt
   shell: yay -S zsh-theme-powerlevel10k-git --noconfirm
+
+- name: Install zsh-completions
+  shell: yay -S zsh-completions-git --noconfirm
+
+- name: Install zsh-autosuggestions
+  shell: yay -S zsh-autosuggestions-git --noconfirm
+
+- name: Install zsh-syntax-highlighting
+  shell: yay -S zsh-syntax-highlighting-git --noconfirm
