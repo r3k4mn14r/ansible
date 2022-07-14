@@ -1,6 +1,14 @@
+- name: Remove manjaro-zsh-configs
+  become: true
+  pacman:
+    name: manjaro-zsh-configs
+    state: absent
+    extra_args: --recursive
+
 - name: Install zsh
   become: true
-  pacman: name=zsh
+  pacman:
+    name: zsh
 
 - name: Change default shell to zsh
   become: true
