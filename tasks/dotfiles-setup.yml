@@ -11,6 +11,15 @@
     accept_hostkey: yes
     version: main
 
+- name: Remove system default dotfiles
+  file:
+    path: "{{ lookup('env', 'HOME') }}/{{ item }}"
+    state: absent
+  with_items:
+    - .zshrc
+    - .i3
+    - .Xresources
+
 - name: Unlinking previous dotfiles
   shell: "stow -D -t {{ lookup('env', 'HOME') }} -d {{ lookup('env', 'HOME') }}/.dotfiles {{ item }}"
   with_items:
