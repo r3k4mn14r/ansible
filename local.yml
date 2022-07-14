@@ -11,26 +11,26 @@
     - vars/ssh.yml
   tasks:
     - import_tasks: tasks/yay-setup.yml
-      tags: [ install, yay ]
+      tags: [ yay ]
     - import_tasks: tasks/ssh-setup.yml
-      tags: [ install, ssh ]
+      tags: [ ssh ]
     - import_tasks: tasks/base-setup.yml
-      tags: [ install, base ]
+      tags: [ base ]
     - import_tasks: tasks/git-setup.yml
-      tags: [ install, git ]
+      tags: [ git ]
     - import_tasks: tasks/dotfiles-setup.yml
-      tags: [ install, dotfiles ]
+      tags: [ dotfiles ]
     - import_tasks: tasks/zsh-setup.yml
-      tags: [ install, zsh ]
+      tags: [ zsh ]
     - import_tasks: tasks/nvim-setup.yml
-      tags: [ install, neovim ]
+      tags: [ neovim ]
     - import_tasks: tasks/brave-setup.yml
-      tags: [ install, brave ]
+      tags: [ brave ]
     - import_tasks: tasks/devtools-setup.yml
-      tags: [ install, tools ]
+      tags: [ tools ]
     - import_tasks: tasks/rust-setup.yml
-      tags: [ install, rust ]
+      tags: [ rust ]
     - import_tasks: tasks/python-setup.yml
-      tags: [ install, python ]
+      tags: [ python ]
     - import_tasks: tasks/termfonts-setup.yml
-      tags: [ install, fonts ]
+      tags: [ fonts ]
