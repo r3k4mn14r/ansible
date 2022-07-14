@@ -1,2 +1,0 @@
-- name: Install terminal fonts
-  command: yay -S nerd-fonts-source-code-pro --noconfirm

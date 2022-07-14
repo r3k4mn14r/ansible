@@ -1,2 +1,0 @@
-- name: Install brave
-  shell: yay -S brave-bin

@@ -10,27 +10,12 @@
   vars_files:
     - vars/ssh.yml
   tasks:
-    - import_tasks: tasks/yay-setup.yml
-      tags: [ yay ]
-    - import_tasks: tasks/ssh-setup.yml
-      tags: [ ssh ]
+    - import_tasks: tasks/clean-defaults.yml
     - import_tasks: tasks/base-setup.yml
-      tags: [ base ]
+    - import_tasks: tasks/ssh-setup.yml
     - import_tasks: tasks/git-setup.yml
-      tags: [ git ]
     - import_tasks: tasks/dotfiles-setup.yml
-      tags: [ dotfiles ]
     - import_tasks: tasks/zsh-setup.yml
-      tags: [ zsh ]
     - import_tasks: tasks/nvim-setup.yml
-      tags: [ neovim ]
-    - import_tasks: tasks/brave-setup.yml
-      tags: [ brave ]
-    - import_tasks: tasks/devtools-setup.yml
-      tags: [ tools ]
     - import_tasks: tasks/rust-setup.yml
-      tags: [ rust ]
     - import_tasks: tasks/python-setup.yml
-      tags: [ python ]
-    - import_tasks: tasks/termfonts-setup.yml
-      tags: [ fonts ]

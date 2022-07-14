@@ -1,6 +1,10 @@
 - name: Install stow
   become: true
-  pacman: name=stow
+  pacman: 
+    name: stow
+  tags:
+    - install
+    - dotfiles
 
 - name: Cloning dotfiles
   git:
@@ -10,15 +14,9 @@
     update: yes
     accept_hostkey: yes
     version: main
-
-- name: Remove system default dotfiles
-  file:
-    path: "{{ lookup('env', 'HOME') }}/{{ item }}"
-    state: absent
-  with_items:
-    - .zshrc
-    - .i3
-    - .Xresources
+  tags:
+    - install
+    - dotfiles
 
 - name: Unlinking previous dotfiles
   shell: "stow -D -t {{ lookup('env', 'HOME') }} -d {{ lookup('env', 'HOME') }}/.dotfiles {{ item }}"
@@ -29,6 +27,9 @@
     - ipython
     - i3
     - urxvt
+  tags:
+    - install
+    - dotfiles
 
 - name: Linking dotfiles
   shell: "stow -t {{ lookup('env', 'HOME') }} -d {{ lookup('env', 'HOME') }}/.dotfiles {{ item }}"
@@ -39,3 +40,6 @@
     - ipython
     - i3
     - urxvt
+  tags:
+    - install
+    - dotfiles

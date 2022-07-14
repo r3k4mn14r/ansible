@@ -1,3 +1,0 @@
-- name: Yay setup
-  pacman: name=yay
-  become: true

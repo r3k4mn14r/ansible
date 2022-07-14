@@ -1,27 +1,38 @@
-- name: Remove manjaro-zsh-configs
-  become: true
-  pacman:
-    name: manjaro-zsh-configs
-    state: absent
-    extra_args: --recursive
-
 - name: Install zsh
   become: true
   pacman:
     name: zsh
+  tags:
+    - install
+    - zsh
 
 - name: Change default shell to zsh
   become: true
   shell: chsh -s "$(which zsh)" "{{ lookup('env', 'USER') }}"
+  tags:
+    - install
+    - zsh
 
 - name: Install powerlevel10k prompt
-  shell: yay -S zsh-theme-powerlevel10k-git --noconfirm
+  command: yay -S zsh-theme-powerlevel10k-git --noconfirm
+  tags:
+    - install
+    - zsh
 
 - name: Install zsh-completions
-  shell: yay -S zsh-completions-git --noconfirm
+  command: yay -S zsh-completions-git --noconfirm
+  tags:
+    - install
+    - zsh
 
 - name: Install zsh-autosuggestions
-  shell: yay -S zsh-autosuggestions-git --noconfirm
+  command: yay -S zsh-autosuggestions-git --noconfirm
+  tags:
+    - install
+    - zsh
 
 - name: Install zsh-syntax-highlighting
-  shell: yay -S zsh-syntax-highlighting-git --noconfirm
+  command: yay -S zsh-syntax-highlighting-git --noconfirm
+  tags:
+    - install
+    - zsh

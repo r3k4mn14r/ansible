@@ -1,3 +1,27 @@
 - name: Install system packages
   become: true
-  pacman: name=base-devel
+  pacman:
+    name: base-devel,yay
+  tags:
+    - install
+    - never
+
+- name: Setup dev tools
+  become: true
+  pacman: 
+    name: tmux,tldr,ripgrep,fd,xclip,git
+  tags:
+    - install
+    - tools
+
+- name: Install terminal fonts
+  command: yay -S nerd-fonts-source-code-pro --noconfirm
+  tags:
+    - install
+    - fonts
+
+- name: Install brave browser
+  command: yay -S brave-bin --noconfirm
+  tags:
+    - install
+    - brave

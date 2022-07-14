@@ -1,25 +1,47 @@
 - name: Remove pyenv versions
   shell: rm -rf ~/.pyenv
+  tags:
+    - install
+    - python
 
 - name: Install pyenv
-  pacman: name=pyenv
+  pacman: 
+    name: pyenv
   become: true
+  tags:
+    - install
+    - python
 
 - name: Set python version
   set_fact:
     latest_python: $(pyenv install --list | grep --extended-regexp "^\s*[0-9][0-9.]*[0-9]\s*$" | tail -1)
+  tags:
+    - install
+    - python
 
 - name: Install latest python
   shell: pyenv install {{ latest_python }}
+  tags:
+    - install
+    - python
 
 - name: Set python versions path
   shell: pyenv global {{ latest_python }}
+  tags:
+    - install
+    - python
 
 - name: Install pipx
   shell: python -m pip install --user pipx
+  tags:
+    - install
+    - python
 
 - name: Uninstall all pipx packages
   shell: pipx uninstall-all
+  tags:
+    - install
+    - python
 
 - name: Install python programs
   shell: pipx install "{{ item }}"
@@ -29,3 +51,6 @@
     - black
     - poetry
     - jedi-language-server
+  tags:
+    - install
+    - python
