@@ -18,10 +18,13 @@
   command: yay -S nerd-fonts-source-code-pro --noconfirm
   tags:
     - install
-    - fonts
 
 - name: Install brave browser
   command: yay -S brave-bin --noconfirm
   tags:
     - install
-    - brave
+
+- name: Install ghq
+  command: yay -S ghq --noconfirm
+  tags:
+    - install
