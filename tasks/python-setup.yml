@@ -32,7 +32,7 @@
     - python
 
 - name: Install pipx
-  shell: python -m pip install --user pipx
+  shell: pyenv exec pip install --user pipx
   tags:
     - install
     - python

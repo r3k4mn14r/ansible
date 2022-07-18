@@ -1,7 +1,17 @@
 - name: Remove manjaro-zsh-configs
   become: true
   pacman:
-    name: manjaro-zsh-configs
+    name: manjaro-zsh-config
+    state: absent
+    extra_args: --recursive
+  tags:
+    - install
+    - never
+
+- name: Remove powerlevel10k
+  become: true
+  pacman:
+    name: zsh-theme-powerlevel10k
     state: absent
     extra_args: --recursive
   tags:
