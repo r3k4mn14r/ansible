@@ -1,0 +1,7 @@
+- name: Update pacman mirrors
+  become: true
+  command: "pacman-mirrors --fasttrack"
+  tags:
+    - install
+    - pacman
+    - never
