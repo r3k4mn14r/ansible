@@ -1,7 +1,7 @@
 - name: Setup dev tools
   become: true
   pacman: 
-    name: tmux,tldr,ripgrep,fd,xclip,git
+    name: tmux,tldr,ripgrep,fd,xclip,git,xterm
   tags:
     - install
     - tools
