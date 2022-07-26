@@ -26,7 +26,7 @@
     - nvim
     - ipython
     - i3
-    - urxvt
+    - term
   tags:
     - install
     - dotfiles
@@ -39,7 +39,7 @@
     - nvim
     - ipython
     - i3
-    - urxvt
+    - term
   tags:
     - install
     - dotfiles
