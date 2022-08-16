@@ -1,3 +1,10 @@
+- name: Install tk
+  become: true
+  pacman:
+    name: tk
+  tags:
+    - python
+
 - name: Remove pyenv versions
   shell: rm -rf ~/.pyenv
   tags:
