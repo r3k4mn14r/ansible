@@ -24,3 +24,12 @@
   tags:
     - install
     - git
+
+- name: Set fast-forward merge only
+  git_config:
+    name: merge.ff
+    scope: global
+    value: only
+  tags:
+    - install
+    - git
