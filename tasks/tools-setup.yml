@@ -7,16 +7,11 @@
     - tools
 
 - name: Install terminal fonts
-  command: yay -S nerd-fonts-source-code-pro --noconfirm
+  command: yay -S ttf-sourcecodepro-nerd --noconfirm
   tags:
     - install
 
 - name: Install brave browser
   command: yay -S brave-bin --noconfirm
-  tags:
-    - install
-
-- name: Install ghq
-  command: yay -S ghq --noconfirm
   tags:
     - install
