@@ -27,6 +27,7 @@
     - ipython
     - i3
     - term
+    - alacritty
   tags:
     - install
     - dotfiles
@@ -40,6 +41,7 @@
     - ipython
     - i3
     - term
+    - alacritty
   tags:
     - install
     - dotfiles
