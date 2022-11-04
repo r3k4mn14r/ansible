@@ -33,3 +33,12 @@
   tags:
     - install
     - git
+
+- name: Force clone using ssh
+  git_config:
+    name: url.git@github.com:.insteadOf
+    scope: global
+    value: "https://github.com/"
+  tags:
+    - install
+    - git
