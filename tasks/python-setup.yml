@@ -31,7 +31,6 @@
   tags:
     - install
     - python
-
 - name: Set python versions path
   shell: pyenv global {{ latest_python }}
   tags:
@@ -57,7 +56,6 @@
     - flake8
     - black
     - poetry
-    - jedi-language-server
   tags:
     - install
     - python
