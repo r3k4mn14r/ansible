@@ -3,6 +3,7 @@
   pacman:
     name: tk
   tags:
+    - install
     - python
 
 - name: Remove pyenv versions

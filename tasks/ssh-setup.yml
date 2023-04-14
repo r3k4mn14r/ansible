@@ -6,7 +6,6 @@
   tags:
     - install
     - ssh
-    - never
 
 - name: Install ssh key
   copy:
@@ -16,7 +15,6 @@
   tags:
     - install
     - ssh
-    - never
 
 - name: Install ssh key public
   copy:
@@ -26,7 +24,6 @@
   tags:
     - install
     - ssh
-    - never
 
 - name: Set authorized key took from file
   authorized_key:
@@ -36,4 +33,3 @@
   tags:
     - install
     - ssh
-    - never

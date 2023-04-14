@@ -6,7 +6,6 @@
     extra_args: --recursive
   tags:
     - install
-    - never
 
 - name: Remove powerlevel10k
   become: true
@@ -16,7 +15,6 @@
     extra_args: --recursive
   tags:
     - install
-    - never
 
 - name: Remove system default dotfiles
   file:
@@ -28,4 +26,3 @@
     - .Xresources
   tags:
     - install
-    - never

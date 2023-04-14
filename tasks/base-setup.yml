@@ -1,7 +1,28 @@
+- name: Update pacman mirrors
+  become: true
+  command: "pacman-mirrors --fasttrack"
+  tags:
+    - install
+    - base
+
 - name: Install system packages
   become: true
   pacman:
-    name: base-devel,yay
+    name:
+      - base-devel
+      - yay
   tags:
     - install
-    - never
+    - base
+
+- name: Install terminal fonts
+  command: yay -S ttf-sourcecodepro-nerd --noconfirm
+  tags:
+    - install
+    - base
+
+- name: Install brave browser
+  command: yay -S brave-bin --noconfirm
+  tags:
+    - install
+    - base

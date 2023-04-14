@@ -1,17 +1,16 @@
 - name: Setup dev tools
   become: true
   pacman: 
-    name: tmux,tldr,ripgrep,fd,xclip,git,bat,xterm,alacritty
+    name:
+      - tmux
+      - tldr
+      - ripgrep
+      - fd
+      - xclip
+      - git
+      - bat
+      - alacritty
+      - npm
   tags:
     - install
     - tools
-
-- name: Install terminal fonts
-  command: yay -S ttf-sourcecodepro-nerd --noconfirm
-  tags:
-    - install
-
-- name: Install brave browser
-  command: yay -S brave-bin --noconfirm
-  tags:
-    - install
