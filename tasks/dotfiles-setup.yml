@@ -19,7 +19,7 @@
     - dotfiles
 
 - name: Unlinking previous dotfiles
-  shell: "stow -D -t {{ lookup('env', 'HOME') }} -d {{ lookup('env', 'HOME') }}/.dotfiles {{ item }}"
+  command: "stow -D -t {{ lookup('env', 'HOME') }} -d {{ lookup('env', 'HOME') }}/.dotfiles {{ item }}"
   with_items:
     - zsh
     - tmux
@@ -33,7 +33,7 @@
     - dotfiles
 
 - name: Linking dotfiles
-  shell: "stow -t {{ lookup('env', 'HOME') }} -d {{ lookup('env', 'HOME') }}/.dotfiles {{ item }}"
+  command: "stow -t {{ lookup('env', 'HOME') }} -d {{ lookup('env', 'HOME') }}/.dotfiles {{ item }}"
   with_items:
     - zsh
     - tmux

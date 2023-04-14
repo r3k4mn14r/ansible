@@ -1,13 +1,5 @@
-- name: Install tk
-  become: true
-  pacman:
-    name: tk
-  tags:
-    - install
-    - python
-
 - name: Remove pyenv versions
-  shell: rm -rf ~/.pyenv
+  command: rm -rf ~/.pyenv
   tags:
     - install
     - python
@@ -45,13 +37,13 @@
     - python
 
 - name: Uninstall all pipx packages
-  shell: pipx uninstall-all
+  command: pipx uninstall-all
   tags:
     - install
     - python
 
 - name: Install python programs
-  shell: pipx install "{{ item }}"
+  command: pipx install "{{ item }}"
   with_items:
     - ipython
     - black
@@ -61,7 +53,7 @@
     - python
 
 - name: Configure poetry
-  shell: poetry config virtualenvs.in-project true
+  command: poetry config virtualenvs.in-project true
   tags:
     - install
     - python
