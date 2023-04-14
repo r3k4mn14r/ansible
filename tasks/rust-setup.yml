@@ -23,11 +23,3 @@
   tags:
     - install
     - rust
-
-- name: Install rust-analyzer
-  become: true
-  pacman:
-    name: rust-analyzer
-  tags:
-    - install
-    - rust
