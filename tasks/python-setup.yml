@@ -46,7 +46,6 @@
   command: pipx install "{{ item }}"
   with_items:
     - ipython
-    - black
     - poetry
   tags:
     - install
