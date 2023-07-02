@@ -31,7 +31,9 @@
     - python
 
 - name: Install pipx
-  shell: pyenv exec pip install --user pipx
+  pacman: 
+    name: python-pipx
+  become: true
   tags:
     - install
     - python
