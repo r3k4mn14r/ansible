@@ -26,3 +26,9 @@
   tags:
     - install
     - base
+
+- name: Install tmux-mem-cpu-load
+  command: yay -S tmux-mem-cpu-load --noconfirm
+  tags:
+    - install
+    - base
